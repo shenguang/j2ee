@@ -2,15 +2,8 @@ package 多线程.MyThreadLocal;
 
 import java.util.HashMap;
 import java.util.Map;
-
-/***************************************
- * @author:Alex Wang
- * @Date:2017/3/23 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
-
 /**
- * 始终已当前线程作为Key值
+ * 原理： 始终以当前线程作为Key值，value:为设置的值
  *
  * @param <T>
  */

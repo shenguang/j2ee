@@ -14,14 +14,13 @@ public class ThreadLocalSimulatorTest {
             return "No Value";
         }
     };
-
     //seed
     private final static Random random = new Random(System.currentTimeMillis());
 
     public static void main(String[] args) throws InterruptedException {
 
         Thread t1 = new Thread(() -> {
-            threadLocal.set("Thread-T1");
+            threadLocal.set("Thread-T0");
             try {
                 Thread.sleep(random.nextInt(1000));
                 System.out.println(Thread.currentThread().getName() + " " + threadLocal.get());
@@ -31,7 +30,7 @@ public class ThreadLocalSimulatorTest {
         });
 
         Thread t2 = new Thread(() -> {
-            threadLocal.set("Thread-T2");
+            threadLocal.set("Thread-T1");
             try {
                 Thread.sleep(random.nextInt(1000));
                 System.out.println(Thread.currentThread().getName() + " " + threadLocal.get());

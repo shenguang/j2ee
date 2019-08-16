@@ -1,6 +1,9 @@
 package littiletest;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
 
 /**
  * @className test
@@ -30,7 +33,26 @@ public class test {
         //.multiply(new BigDecimal(50)).setScale(5, BigDecimal.ROUND_HALF_UP)
         System.out.println(new BigDecimal(10).compareTo(new BigDecimal(10.00)));
         System.out.println("========>: "+new BigDecimal(10).divide(new BigDecimal(3),BigDecimal.ROUND_HALF_UP));
+        Integer a = 4566;
+        Integer b = 456611;
+        System.out.println(a.compareTo(b));
+
+        LocalTime mid = LocalTime.parse("12:00"); // 12:00:00
+        LocalTime min = LocalTime.parse("12:00"); // 12:00:00
+        System.out.println(mid.compareTo(min));
+
+        Double distance = 754.55;
+        Long rand =  Math.round(distance/1000);
+        System.out.println(rand.intValue());
 
 
+        System.out.println(new Date().compareTo(parse("2019-08-06 10:30:30","yyyy-MM-dd HH:mm:ss")));
+    }
+    public static Date parse(final String dateValue, final String fmt) {
+        try{
+            return new SimpleDateFormat(fmt).parse(dateValue);
+        }catch(Exception ex) {
+            return null;
+        }
     }
 }

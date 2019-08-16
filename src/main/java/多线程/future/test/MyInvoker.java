@@ -13,16 +13,18 @@ package 多线程.future.test;
  **/
 public class MyInvoker {
     public static void main(String[] args) {
-        MyFutureService futureService = new MyFutureService();
-        //这个模式主要有futureService实现   submit提交任务，是将开启一个线程执行Task  主线程不干扰
-        MyFuture<String> submit = futureService.submitaa(() -> {
-            try {
-                Thread.sleep(10000l);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return "FINISH";
-        });
+//        MyFutureService futureService = new MyFutureService();
+//        //这个模式主要有futureService实现   submit提交任务，是将开启一个线程执行Task  主线程不干扰
+//        MyFuture<String> submit = futureService.submitaa(() -> {
+//            try {
+//                Thread.sleep(10000l);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            return "FINISH";
+//        });
+        MyInvoker myInvoker = new MyInvoker();
+        myInvoker.test2();
 
         System.out.println(" =========do other things ======== ");
     }
