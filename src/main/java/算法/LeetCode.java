@@ -170,8 +170,8 @@ public class LeetCode {
     public static void main(String[] args) {
         LeetCode leetCode = new LeetCode();
 
-//        int[] in = {9,4,7,3,5,8};
-//        Arrays.stream(twoSum(in, 9)).forEach(System.out::print);
+        int[] in = {9,4,7,3,5,8};
+        Arrays.stream(twoSum(in, 9)).forEach(System.out::print);
 
 //        ListNode l1 = new ListNode(2);
 //        l1.add(4);
@@ -185,7 +185,7 @@ public class LeetCode {
 //        int abcabcbb2 = leetCode.lengthOfLongestSubstringRep("abqsdfaaaaacabcbbb");
 //        String babad = leetCode.longestPalindrome("aaaacdfgdcaba");
 
-        System.out.println(leetCode.romanToInt("XCD"));
+//        System.out.println(leetCode.romanToInt("XCD"));
     }
 
 

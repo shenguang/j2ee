@@ -21,9 +21,10 @@
 而用户B里的独占锁由于A 有共享锁存在所以必须等A释放掉共享锁，而A由于B的独占锁而无法上升的独占锁也就不可能释放共享锁。
 解决方法：1：防治重复提交，2：使用乐观锁，3：使用悲观锁
 mysql查询死锁：
-show OPEN TABLES where In_use > 0;show processlist ；kill id
+show OPEN TABLES where In_use > 0;show processlist ;kill id
 
 java 查看死锁：
+经验之谈：首先我会看看代码, 如果我看到一个嵌套的同步块，或从一个同步的方法调用其他同步方法, 或试图在不同的对象上获取锁, 如果开发人员不是非常小心，就很容易造成死锁。
 jconsol==》线程==》检查死锁按钮  ：哪个线程持有那个锁
 jstock查询：
 jps（查出类的进程id）==》jstack -L id ==》出现deadLock信息（哪个线程持有那个锁）

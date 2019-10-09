@@ -21,6 +21,7 @@ public class Order {
     String priceItemName;
     Integer status;
     BigDecimal free;
+    Date date;
 
     public Order(String orderNo, String createOrderName, String priceItemName, Integer status, BigDecimal free) {
         this.orderNo = orderNo;
@@ -68,6 +69,14 @@ public class Order {
 
     public void setFree(BigDecimal free) {
         this.free = free;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

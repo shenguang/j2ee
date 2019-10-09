@@ -47,6 +47,12 @@ public class test {
 
 
         System.out.println(new Date().compareTo(parse("2019-08-06 10:30:30","yyyy-MM-dd HH:mm:ss")));
+
+
+        Date adate=parseDateStr("0000-00-00 00:00:00","yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(a);
+        System.out.println(formatDateTime(adate));
     }
     public static Date parse(final String dateValue, final String fmt) {
         try{
@@ -55,4 +61,20 @@ public class test {
             return null;
         }
     }
+
+    public static Date parseDateStr(String dateStr,String parttern){
+        try{
+            SimpleDateFormat format =  new SimpleDateFormat(parttern);
+            return format.parse(dateStr);
+        }catch (Exception e){
+            return null;
+        }
+    }
+
+    public static String formatDateTime(Date date) {
+        SimpleDateFormat outFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return outFormat.format(date);
+    }
+
+
 }

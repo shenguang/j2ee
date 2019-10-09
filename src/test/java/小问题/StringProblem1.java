@@ -98,4 +98,28 @@ public class StringProblem1 {
             System.out.println(aChar);
         }
     }
+    @Test
+    public void strEq(){
+        String abcd = "abcd";
+        String abcd2 = "abcd";
+        System.out.println(abcd==abcd2);
+
+        String abcd3 = new String("abcd");
+        System.out.println(abcd==abcd3);
+
+        String abcd4 = "abc"+"d";
+        System.out.println(abcd==abcd4);
+
+
+        String abcd5 = "abc";
+        String abcd6 = "d";
+        String abcd7 = abcd5+abcd6;
+        System.out.println(abcd==abcd7);
+
+        int a = 10;
+
+        a = 11;
+
+
+    }
 }
