@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 
 /**
@@ -37,5 +38,7 @@ public class JDKCountDown {
         System.out.println("多线程任务全部结束,准备第二阶段任务");
         System.out.println("............");
         System.out.println("FINISH");
+        ReentrantLock reentrantLock = new ReentrantLock();
+
     }
 }

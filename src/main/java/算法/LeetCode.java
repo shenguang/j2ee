@@ -31,35 +31,36 @@ public class LeetCode {
         ListNode p = l1;
         ListNode q = l2;
         int addNum = 0;
-        while(q!=null){
-            if(p.next==null && q.next!=null)
+        while (q != null) {
+            if (p.next == null && q.next != null)
                 p.next = new ListNode(0);
-            if(q.next==null && p.next!=null)
+            if (q.next == null && p.next != null)
                 q.next = new ListNode(0);
             int sumAll = addNum + p.val + q.val;
             p.val = sumAll % 10;
             addNum = sumAll / 10;
-            if(p.next == null && q.next == null && addNum!=0)
+            if (p.next == null && q.next == null && addNum != 0)
                 p.next = new ListNode(addNum);
             p = p.next;
             q = q.next;
         }
         return l1;
     }
+
     //查看字符串中最长不重复且连续的子串的长度
     public int lengthOfLongestSubstring(String s) {
         int len = 1;
-        for(int i = 0 ;i<s.length();i++){
-            for(int j=i+1;j<s.length();j++){
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j < s.length(); j++) {
                 int start = i;
-                int end = j ;
+                int end = j;
                 Set<Character> set = new HashSet<>();
-                for(;start<end;start++){
+                for (; start < end; start++) {
                     char c = s.charAt(start);
-                    if(set.contains(c)){
-                        len = Math.max(len,set.size());
+                    if (set.contains(c)) {
+                        len = Math.max(len, set.size());
                         break;
-                    }else {
+                    } else {
                         set.add(c);
                     }
                 }
@@ -67,6 +68,7 @@ public class LeetCode {
         }
         return len;
     }
+
     //查看字符串中最长不重复且连续的子串的长度---滑动窗口的方法
     public int lengthOfLongestSubstringRep(String s) {
         int n = s.length();
@@ -74,15 +76,15 @@ public class LeetCode {
         int ans = 0, i = 0, j = 0;
         while (i < n && j < n) {
             // try to extend the range [i, j]
-            if (list.size()<=0||list.contains(s.charAt(j))){
+            if (list.size() <= 0 || list.contains(s.charAt(j))) {
                 list.add(s.charAt(j++));
-                System.out.println("j = "+j);
+                System.out.println("j = " + j);
                 ans = Math.max(ans, j - i);
-            }else {
+            } else {
                 char index = s.charAt(i++);
                 //注意：
                 list.remove(new Character(index));
-                System.out.println("i = "+i);
+                System.out.println("i = " + i);
             }
         }
         return ans;
@@ -94,27 +96,27 @@ public class LeetCode {
         int ans = 0, i = 0, j = 0;
         while (i < n && j < n) {
             // try to extend the range [i, j]
-            if (!set.contains(s.charAt(j))){
+            if (!set.contains(s.charAt(j))) {
                 set.add(s.charAt(j++));
-                System.out.println("j = "+j);
+                System.out.println("j = " + j);
                 ans = Math.max(ans, j - i);
-            }
-            else {
+            } else {
                 char o = s.charAt(i++);
-                System.out.println("i = "+i);
+                System.out.println("i = " + i);
                 set.remove(o);
             }
         }
         return ans;
     }
+
     public String longestPalindrome(String s) {
         int len = 1;
         String sub = null;
-        for(int i =0 ;i<s.length();i++){
-            for(int j=(i+1);j<=s.length();j++){
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = (i + 1); j <= s.length(); j++) {
                 String substring = s.substring(i, j);
                 int i1 = strReverse(substring);
-                if(len<i1){
+                if (len < i1) {
                     len = i1;
                     sub = substring;
                 }
@@ -122,21 +124,23 @@ public class LeetCode {
         }
         return sub;
     }
-    private int strReverse(String substring){
+
+    private int strReverse(String substring) {
         char[] chars = substring.toCharArray();
         StackList<Character> stackList = new StackList<>();
-        for(int k=0;k<chars.length;k++){
+        for (int k = 0; k < chars.length; k++) {
             stackList.add(chars[k]);
         }
         StringBuffer sb = new StringBuffer();
-        while (!stackList.isEmpet()){
+        while (!stackList.isEmpet()) {
             sb.append(stackList.pop());
         }
-        if(substring.equals(sb.toString())){
+        if (substring.equals(sb.toString())) {
             return substring.length();
         }
         return 1;
     }
+
     public int romanToInt(String s) {
         Map<String, Integer> map = new HashMap<>();
         map.put("I", 1);
@@ -153,25 +157,66 @@ public class LeetCode {
         map.put("CM", 900);
         map.put("M", 1000);
         int ans = 0;
-        for(int i = 0;i < s.length();) {
-            if(i + 1 < s.length() && map.containsKey(s.substring(i, i+2))) {
-                ans += map.get(s.substring(i, i+2));
+        for (int i = 0; i < s.length(); ) {
+            if (i + 1 < s.length() && map.containsKey(s.substring(i, i + 2))) {
+                ans += map.get(s.substring(i, i + 2));
                 i += 2;
             } else {
-                ans += map.get(s.substring(i, i+1));
-                i ++;
+                ans += map.get(s.substring(i, i + 1));
+                i++;
             }
         }
         return ans;
     }
 
+    //    给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
+//    请你找出这两个正序数组的中间，并且要求算法的时间复杂度为 O(log(m + n))。
+//    你可以假设 nums1 和 nums2 不会同时为空。
+//    来源：力扣（LeetCode）
+//    链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int length1 = nums1.length;
+        int n1 = length1 / 2;
+        int length2 = nums2.length;
+        int n2 = length2 / 2;
+        double tem1 = 0;
+        double tem2 = 0;
+
+        if (length1 > 0) {
+            if (n1 > 0) {
+                double v1 = Double.parseDouble(nums1[n1] + "");
+                double v2 = Double.parseDouble(nums1[n1 - 1] + "");
+                tem1 = (v1 + v2) / 2;
+            } else {
+                tem1 = Double.parseDouble(nums1[n1] + "");
+            }
+        }
+        if (length2 > 0) {
+            if (n2 > 0) {
+                double v1 = Double.parseDouble(nums2[n2] + "");
+                double v2 = Double.parseDouble(nums2[n2 - 1] + "");
+                tem2 = (v1 + v2) / 2;
+            } else {
+                tem2 = Double.parseDouble(nums2[n2] + "");
+            }
+        }
+
+        if (length1 > 0 && length2 > 0) {
+            return (tem1 + tem2) / 2;
+        } else if (length1 > 0) {
+            return tem1;
+        } else if (length2 > 0) {
+            return tem2;
+        }
+        return 0;
+    }
 
 
     public static void main(String[] args) {
         LeetCode leetCode = new LeetCode();
 
-        int[] in = {9,4,7,3,5,8};
-        Arrays.stream(twoSum(in, 9)).forEach(System.out::print);
+//        int[] in = {9,4,7,3,5,8};
+//        Arrays.stream(twoSum(in, 9)).forEach(System.out::print);
 
 //        ListNode l1 = new ListNode(2);
 //        l1.add(4);
@@ -186,6 +231,11 @@ public class LeetCode {
 //        String babad = leetCode.longestPalindrome("aaaacdfgdcaba");
 
 //        System.out.println(leetCode.romanToInt("XCD"));
+
+        int[] nums1 = {1, 2};
+        int[] nums2 = {};
+        double medianSortedArrays = leetCode.findMedianSortedArrays(nums1, nums2);
+        System.out.println(medianSortedArrays);
     }
 
 

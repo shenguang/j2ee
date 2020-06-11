@@ -1,14 +1,10 @@
 package java8.javastream;
 
 import java8.javadate.DateTimeUtils;
-import org.apache.commons.collections.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * @className TestOrder

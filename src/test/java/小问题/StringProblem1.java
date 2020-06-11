@@ -1,5 +1,6 @@
 package 小问题;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -121,5 +122,24 @@ public class StringProblem1 {
         a = 11;
 
 
+    }
+    @Test
+    public void stringUtilsTest(){
+        Integer abc = 123123;
+        boolean equals = (abc+"").equals("123123");
+        System.out.println(equals);
+    }
+    @Test
+    public void stringUtilsTest2(){
+        int a = 1;
+       if(a==1){
+           System.out.println("第一个if"+a);
+       }else if(a>0){
+           System.out.println("第二个if"+a);
+       }else if(a>1){
+           System.out.println("第三个if"+a);
+       }else {
+           System.out.println("最后一个"+a);
+       }
     }
 }

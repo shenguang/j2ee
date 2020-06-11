@@ -2,6 +2,7 @@ package 算法;
 
 import 数据结构.hashbiao.HashTable;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -15,6 +16,7 @@ import java.util.List;
 public class PaiXu {
     /**
      * 冒泡排序
+     *从后向前冒泡
      *
      * @param in
      * @return
@@ -146,24 +148,51 @@ public class PaiXu {
 
 
     public static void main(String[] args) {
-        PaiXu px = new PaiXu();
-//		List<Integer> in = new ArrayList<Integer>();
-//		in.add(213);
-//		in.add(3);
-//		in.add(4);
-//		in.add(89);
-//		in.add(1);
-//		System.out.println(px.maoPaoPaiXu(in));
+//        PaiXu px = new PaiXu();
+////		List<Integer> maopao = new ArrayList<Integer>();
+////        maopao.add(213);
+////        maopao.add(3);
+////        maopao.add(4);
+////        maopao.add(89);
+////        maopao.add(1);
+////		System.out.println(px.maoPaoPaiXu(maopao));
+////
+//////        int[] srcArray = {6, 4, 8, 9, 2, 3, 1};
+//////        System.out.println(px.partition(srcArray,0,srcArray.length-1));
+//////		System.out.println(Arrays.asList(px.xuanZhePaiXu(srcArray)));
+//////		System.out.println(Arrays.asList(px.charuPaiXu(srcArray)));
+////        int[] in = {33, 88, 22, 1, 54, 74, 65, 12};
+//////        shellSort(in);
+////        px.quickSort(in, 0, in.length - 1);
+////        Arrays.stream(in).forEach(i->{
+////            System.out.println(i+",");
+////        });
+////        try {
+////            InputStreamReader reader = new InputStreamReader(new FileInputStream(""));
+////            BufferedReader bufferedReader = new BufferedReader(reader);
+////
+////            bufferedReader.readLine();
+////        } catch (Exception e) {
+////            e.printStackTrace();
+////        }
 
-        int[] srcArray = {6, 4, 8, 9, 2, 3, 1};
-//        System.out.println(px.partition(srcArray,0,srcArray.length-1));
-//		System.out.println(Arrays.asList(px.xuanZhePaiXu(srcArray)));
-//		System.out.println(Arrays.asList(px.charuPaiXu(srcArray)));
-        int[] in = {33, 88, 22, 1, 54, 74, 65, 12};
-        shellSort(in);
-        px.quickSort(srcArray, 0, srcArray.length - 1);
-        Arrays.stream(srcArray).forEach(System.out::print);
+        Integer[] integers = new Integer[5];
+        integers[0]=1;
+        integers[1]=2;
+        integers[2]=2;
+        integers[3]=3;
+        integers[4]=4;
+        Arrays.stream(integers).forEach(i->{
+            System.out.println(i+",");
+        });
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(1);
 
+        String a = "a";
+        String b = "b";
+        String ab ="ab";
+        String add = a+b;
+        System.out.println(ab == add);
     }
 
 

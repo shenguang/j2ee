@@ -8,6 +8,15 @@
 	<artifactId>testj2ee</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<dependencies>
+
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.56</version>
+		</dependency>
+
+		<!-- jackson -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -24,22 +33,9 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.2</version>
-        </dependency>
-		<!-- https://mvnrepository.com/artifact/org.eclipse.birt.runtime.3_7_1/org.apache.commons.codec -->
-		<dependency>
-			<groupId>org.eclipse.birt.runtime.3_7_1</groupId>
-			<artifactId>org.apache.commons.codec</artifactId>
-			<version>1.3.0</version>
-		</dependency>
-    </dependencies>
+
+
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

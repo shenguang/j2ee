@@ -96,14 +96,31 @@ public class LinkNode<K, V> {
     public static void main(String[] args) {
         LinkNode<String, String> linkNode = new LinkNode<>();
         linkNode.insertLast(new Node<>("name", "张山"));
-        linkNode.insertLast(new Node<>("gander", "男"));
-        linkNode.insertLast(new Node<>("mobile", "110"));
-        linkNode.insertLast(new Node<>("address", "北京"));
-        linkNode.displayAll();
-        System.out.println("=============");
-        linkNode.delete("asdf");
+        linkNode.insertLast(new Node<>("name", "里斯"));
+        linkNode.insertLast(new Node<>("name", "王五"));
+        linkNode.insertLast(new Node<>("name", "赵六"));
+        Node<String, String> node = new Node<>("name", "田七");
+        linkNode.insertLast(node);
+        linkNode.insertLast(new Node<>("name", "小八"));
+        linkNode.insertLast(new Node<>("name", "小九"));
+        Node<String, String> stringStringNode = new Node<>("name", "小时");
+        stringStringNode.setNext(node);
+        linkNode.insertLast(stringStringNode);
+        Node<String, String> slow = linkNode.getFrist();
+        Node<String, String> fast = linkNode.getFrist();
 
-        linkNode.displayAll();
+        for (;;){
+            Node next = slow.getNext();
+            Node next1 = fast.getNext().getNext();
+            slow = next;
+            fast = next1;
+            if(slow==fast){
+                System.out.println(next);
+                break;
+            }
+        }
+
+
     }
 
 }
